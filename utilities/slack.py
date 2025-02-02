@@ -11,6 +11,7 @@ def get_headers():
     }
 
 def complete_workflow(function_execution_id):
+    # Complete the Slack workflow
     url = f"{SLACK_API_URL}/functions.completeSuccess"
     headers = get_headers()
     payload = {
@@ -22,6 +23,7 @@ def complete_workflow(function_execution_id):
     return response.json()
 
 def get_message(channel_id, message_timestamp):
+    # Get message text using message_ts and channel_id
     url = f"{SLACK_API_URL}/conversations.history"
     headers = get_headers()
     params = {
@@ -35,6 +37,7 @@ def get_message(channel_id, message_timestamp):
     return response.json()
 
 def get_user_info(user_id):
+    # Get user information using user_id
     url = f"{SLACK_API_URL}/users.info"
     headers = get_headers()
     params = {"user": user_id}
